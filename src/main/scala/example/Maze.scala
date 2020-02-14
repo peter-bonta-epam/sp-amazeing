@@ -18,7 +18,7 @@ class Maze(val width: Int, val height: Int) {
     Thread.sleep(2000)
     println("You are A-MAZE-ING! Did you know that?")
     Thread.sleep(5000)
-    println("One moment, generating your maze....")
+    println(s"One moment, generating your ${width -1}x${height -1} maze....")
     Thread.sleep(2000)
     println("Still working. Have a coffee until I'm finished.")
     Thread.sleep(7000)
@@ -65,7 +65,7 @@ class Maze(val width: Int, val height: Int) {
 
 object Maze {
   val MinWidth, MinHeight = 5
-  val MaxWidth, MaxHeight = 1001
+  val MaxWidth, MaxHeight = 201
 
   def notValidMaze(width: Int, height: Int): Boolean = {
     if (width != height) true
