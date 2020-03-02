@@ -27,7 +27,7 @@ class Maze(val width: Int, val height: Int) {
     Thread.sleep(7000)
     grid.foreach(row => {
       row.foreach(writer.print)
-      println
+      writer.println
     })
     writer.close()
     println("The output file is ready. Take a look.")
