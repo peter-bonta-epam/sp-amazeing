@@ -1,5 +1,7 @@
 package example
 
+import java.io.PrintWriter
+
 class Maze(val width: Int, val height: Int) {
   import Maze._
 
@@ -14,6 +16,7 @@ class Maze(val width: Int, val height: Int) {
   }
 
   def reveal(): Unit = {
+    val writer = new PrintWriter(System.getenv("HOME") + "/maze.txt")
     print("\u001b[2J")
     Thread.sleep(2000)
     println("You are A-MAZE-ING! Did you know that?")
@@ -23,9 +26,11 @@ class Maze(val width: Int, val height: Int) {
     println("Still working. Have a coffee until I'm finished.")
     Thread.sleep(7000)
     grid.foreach(row => {
-      row.foreach(print)
+      row.foreach(writer.print)
       println
     })
+    writer.close()
+    println("The output file is ready. Take a look.")
   }
 
   private def createPath(currentCoordinate: Coordinate): Unit = {
